@@ -1,8 +1,13 @@
 ---
 title: "Data Management Plan for the Study 'Do Reputable Open Access Journals Require Open Data Sharing'?"
-author: "YourName, YourInstitution"
+author: "Ayansina Ayangbenro, North-West University"
 date: "`r format(Sys.Date(), '%A, %B %d, %Y')`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    section_numbering: true
+  
 ---
 
 *****
@@ -45,9 +50,9 @@ Not Applicable (Proposal in preparation)
 
 Do Reputable Open Access Journals Require Open Data Sharing? 
 
-### Project Description
+## Project Description
 
-This study analyzes the submission requirements of the most reputable open access journals to determine the prevalence and characteristics of data sharing policies. This question is an important one for 21st century authors and readers because open data sharing is seen as a key component of open and more trusted scientific record.
+This study analyzes the submission requirements of the most reputable open access journals to determine the prevalence and characteristics of data sharing policies. This question is an important one for 21^st^ century authors and readers because open data sharing is seen as a key component of open and more trusted scientific record. H~2~0
 
 According to the Research Data Alliance (RDA) Data Policy Standardisation and Implementation group https://www.rd-alliance.org/groups/data-policy-standardisation-and-implementation:
 
@@ -59,7 +64,7 @@ Our investigation builds on the recent work of Castro et al (2017) who assessed 
 
 In this study, we will include only the most reputable open access journals in our assessment  of journal sharing policies, regardless of language. We will analyze all journals that have attained the Seal of Approval from the Directory of Open Access Journals, DOAJ http://doaj.org (shown below). We will apply the same coding framework devised by Castro et al (2017) to the DOAJ Seal journals. We contend that a more rigorously screened population of open access journals, regardless of language, will yield a more accurate and reproducible set of findings than those published from Castro et al (2017)
 
-||> Insert DOAJ Seal of Approval images/doaj_seal_logo.png <||
+![DOAJ Seal](images/doaj_seal_logo.png)
 
 DOAJ Seal journals are considered the most reputable because they: 
 
@@ -89,18 +94,18 @@ Turn this into a code chunk
 
 ### Researcher Information
 
-YourName, Principal Investigator, YourInstitution
+Ayansina Ayangbenro, North-West University
 
 Researcher ID
 
-ORCID: ||> Insert your ORCID number here <||
+[ORCID:](0000-0002-3220-1873)
 
 Date of First Version 
 
-Two months ago
+1st August, 2018
 
 Date of Last Update
- Today's date
+ 9th August, 2018
 
 Related Policies
 
@@ -110,18 +115,18 @@ The J. Bohannan Foundation adheres to the open access and data sharing policies 
 
 *****
 
-Data Collection
+## Data Collection
 
 Existing Data Being Reused
 
-This study relies on the DOAJ Journal Metadata available as a csv file download from the DOAJ website https://doaj.org/faq#metadata. The csv file is updated every 30 minutes.
+This study relies on the DOAJ Journal Metadata available as a `csv` file download from the DOAJ website https://doaj.org/faq#metadata. The csv file is updated every 30 minutes.
 
 This data will be read into RStudio, using the tidyverse package (need to cite Tidyverse somehow) to filter it for those journals awarded the DOAJ Seal, and to remove unneeded columns containing the web addresses for journal policies around plagiarism, submission fees, and other urls not related to this study.
 
-The filtered version of the data set will be exported as a new file named doaj_seal.csv for importing into analytical software.
+The filtered version of the data set will be exported as a new file named __doaj_seal.csv__ for importing into analytical software.
 
 
-A sample of the doaj_seal.csv data set is shown below.  The complete data set is available in searchable and  broweseable format in the  [Annex](#annex-table) near the end of this document.
+A sample of the " doaj_seal.csv " data set is shown below.  The complete data set is available in searchable and  broweseable format in the  [Annex](#annex-table) near the end of this document.
 
 ```{r}
 knitr::kable(head(doaj_seal, 4), caption = 'A Table of the first 4 rows of the DOAJ Seal data.')
@@ -133,22 +138,22 @@ knitr::kable(head(doaj_seal, 4), caption = 'A Table of the first 4 rows of the D
 
 The doaj_seal.csv data set currently includes over 1000 reputable open access journals that we will investigate in this study. The data set will be copied and enhanced with additional columns, resulting in the processed data set, doaj_seal_enhanced.csv. The following columns will be added to doaj_seal.csv, in conformance with the Coding Framework of Castro et al (2017).
 
-'Data Policy'  (Boolean)
-Yes
-No
+* 'Data Policy'  (Boolean)
+    a. Yes
+    a. No
 
-'Data Sharing Policy' (Factor)
-No mention 
-Implied
-Mentioned
-Explicitly encouraged
-Required, but not explicitly tied to editorial decisions
-Required as a condition of publication
+* 'Data Sharing Policy' (Factor)
+    + No mention 
+    + Implied
+    + Mentioned
+    + Explicitly encouraged
+    + Required, but not explicitly tied to editorial decisions
+    + Required as a condition of publication
 
-'Data Citation Policy' (Factor)
-No mention 
-Implied
-Explicitly encouraged
+1. 'Data Citation Policy' (Factor)
+    a. No mention 
+    a. Implied
+    a. Explicitly encouraged
         
     
 Investigators will examine the websites of each journal listed in the doaj_seal_enhanced.csv file to determine whether the data sharing policy is included in the Instructions to Authors. The Coding Framework published by Castro et al (2017) will be applied.
@@ -190,7 +195,7 @@ ggplot(data=doaj, aes(doaj$JnlLicense, fill=doaj$JnlLicense)) + stat_count() + l
 
 The journal metadata contained in the project's data sets comes directly from the Directory of Open Access Journals. 
 
-The final outputs from the project will be documented in metadata files according to the DataCite DOI registration agency -- see the DataCite Metadata Schema 4.1 https://schema.datacite.org/ for specific details. By following this standard metadata format, other researchers (and computers) will be able to find, access, and reuse the outputs from this project by searching the DataCite metadatabase.
+The final outputs from the project will be documented in metadata files according to the DataCite DOI registration agency -- see the [DataCite Metadata Schema 4.1](https://schema.datacite.org/) for specific details. By following this standard metadata format, other researchers (and computers) will be able to find, access, and reuse the outputs from this project by searching the DataCite metadatabase.
 
 *****
 
